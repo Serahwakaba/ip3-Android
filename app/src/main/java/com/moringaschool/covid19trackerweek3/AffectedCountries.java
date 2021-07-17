@@ -20,7 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.leo.simplearcloader.SimpleArcLoader;
+//import com.leo.simplearcloader.SimpleArcLoader;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,7 +33,7 @@ public class AffectedCountries extends AppCompatActivity {
 
     EditText edtSearch;
     ListView listView;
-    SimpleArcLoader simpleArcLoader;
+//    SimpleArcLoader simpleArcLoader;
 
     public static List<CountryModel> countryModelsList = new ArrayList<>();
     CountryModel countryModel;
@@ -46,7 +46,7 @@ public class AffectedCountries extends AppCompatActivity {
 
         edtSearch = findViewById(R.id.edtSearch);
         listView = findViewById(R.id.listView);
-        simpleArcLoader = findViewById(R.id.loader);
+//        simpleArcLoader = findViewById(R.id.loader);
 
         getSupportActionBar().setTitle("Affected Countries");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -96,7 +96,7 @@ public class AffectedCountries extends AppCompatActivity {
 
         String url  = "https://corona.lmao.ninja/v2/countries/";
 
-        simpleArcLoader.start();
+//        simpleArcLoader.start();
 
         StringRequest request = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -130,8 +130,8 @@ public class AffectedCountries extends AppCompatActivity {
 
                             myCustomAdapter = new MyCustomAdapter(AffectedCountries.this,countryModelsList);
                             listView.setAdapter(myCustomAdapter);
-                            simpleArcLoader.stop();
-                            simpleArcLoader.setVisibility(View.GONE);
+//                            simpleArcLoader.stop();
+//                            simpleArcLoader.setVisibility(View.GONE);
 
 
 
@@ -140,8 +140,8 @@ public class AffectedCountries extends AppCompatActivity {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            simpleArcLoader.stop();
-                            simpleArcLoader.setVisibility(View.GONE);
+//                            simpleArcLoader.stop();
+//                            simpleArcLoader.setVisibility(View.GONE);
                         }
 
 
@@ -149,8 +149,8 @@ public class AffectedCountries extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                simpleArcLoader.stop();
-                simpleArcLoader.setVisibility(View.GONE);
+//                simpleArcLoader.stop();
+//                simpleArcLoader.setVisibility(View.GONE);
                 Toast.makeText(AffectedCountries.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
