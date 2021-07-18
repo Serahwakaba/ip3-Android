@@ -20,6 +20,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 //import com.leo.simplearcloader.SimpleArcLoader;
 
 import org.json.JSONArray;
@@ -31,9 +33,13 @@ import java.util.List;
 
 public class AffectedCountries extends AppCompatActivity {
 
+
     EditText edtSearch;
     ListView listView;
 //    SimpleArcLoader simpleArcLoader;
+
+    private FirebaseDatabase db = FirebaseDatabase.getInstance();
+    private DatabaseReference root = db.getReference().child("Countries");
 
     public static List<CountryModel> countryModelsList = new ArrayList<>();
     CountryModel countryModel;
@@ -47,6 +53,15 @@ public class AffectedCountries extends AppCompatActivity {
         edtSearch = findViewById(R.id.edtSearch);
         listView = findViewById(R.id.listView);
 //        simpleArcLoader = findViewById(R.id.loader);
+
+        edtSearch.setOnClickListener(new  View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                String list = listView.getTextFilter().toString();
+                root.setValue(list);
+            }
+        });
 
         getSupportActionBar().setTitle("Affected Countries");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
