@@ -4,15 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".Login">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="sarah"
+        android:textColor="@color/white"/>
 
     <Toolbar
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:title="LOGIN"
         android:titleTextColor="@color/white"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-16dp" />
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="-286dp" />
 
     <EditText
         android:id="@+id/name"
@@ -20,34 +26,35 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Enter Name"
+        android:textColorHint="@color/white"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="96dp"
-        android:textColorHighlight="#ff7eff15"
-        android:textColorHint="#ffff25e6"/>
+       />
 
     <EditText
         android:id="@+id/surname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/white"
         android:ems="10"
         android:hint="Enter Surname"
         android:inputType="textEmailAddress"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="209dp"
         android:textColorHighlight="#ff7eff15"
-        android:textColorHint="#ffff25e6"/>
+       />
 
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textColorHint="@color/white"
         android:hint="Enter Email"
         android:inputType="textEmailAddress"
         android:textColorHighlight="#ff7eff15"
-        android:textColorHint="#ffff25e6"
         tools:layout_editor_absoluteX="-16dp"
         tools:layout_editor_absoluteY="311dp" />
 
@@ -57,10 +64,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textColorHint="@color/white"
         android:hint="Enter Password"
         android:inputType="textPassword"
         android:textColorHighlight="#ff7eff15"
-        android:textColorHint="#ffff25e6"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="407dp" />
 
@@ -70,5 +77,6 @@
         android:layout_height="wrap_content"
         android:text="Save"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="511dp" />
+        tools:layout_editor_absoluteY="511dp"
+        android:onClick="goSave"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -112,9 +112,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     public void goTrackCountries(View view) {
 
         startActivity(new Intent(getApplicationContext(),AffectedCountries.class));
+
+    }
+    public void goSave(View view) {
+
+        startActivity(new Intent(MainActivity.this,Login.class));
 
     }
 }

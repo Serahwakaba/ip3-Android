@@ -2,6 +2,7 @@ package com.moringaschool.covid19trackerweek3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,7 +35,18 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 String  name = mName.getText().toString();
                 root.child("o1").setValue(name);
+
+
             }
         });
+
+
+    }
+
+    public void goSave(View view) {
+        Intent intent=new Intent(Login.this,MainActivity.class);
+        startActivity(intent);
+//        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
     }
 }
