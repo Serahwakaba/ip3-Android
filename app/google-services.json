@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "748146601085",
+    "project_id": "covid-19-tracker-week3",
+    "storage_bucket": "covid-19-tracker-week3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748146601085:android:893008af16da92caea9514",
+        "android_client_info": {
+          "package_name": "com.moringaschool.covid19trackerweek3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "748146601085-vdthvdm0b2ib6kcu6k09ii02oe3k8u4t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhEdNLzjj_tyagJ1c2wf0N_HcCi6SqeiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "748146601085-vdthvdm0b2ib6kcu6k09ii02oe3k8u4t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
