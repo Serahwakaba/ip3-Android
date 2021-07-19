@@ -26,7 +26,7 @@ public class Login extends AppCompatActivity {
         mName = findViewById(R.id.name);
         mSurname = findViewById(R.id.surname);
         mEmail = findViewById(R.id.email);
-        mPassword = findViewById(R.id.password);
+//        mPassword = findViewById(R.id.password);
         button = findViewById(R.id.button);
 
 
@@ -35,7 +35,8 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 String  name = mName.getText().toString();
                 root.child("o1").setValue(name);
-
+                Intent intent = new Intent(Login.this, MainActivity.class);
+                startActivity(intent);
 
             }
         });

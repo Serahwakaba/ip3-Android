@@ -73,6 +73,7 @@ public class AffectedCountries extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 startActivity(new Intent(getApplicationContext(),DetailActivity.class).putExtra("position",position));
+
             }
         });
 
@@ -139,6 +140,8 @@ public class AffectedCountries extends AppCompatActivity {
 
                                 countryModel = new CountryModel(flagUrl,countryName,cases,todayCases,deaths,todayDeaths,recovered,active,critical);
                                 countryModelsList.add(countryModel);
+                                root.setValue(countryName);
+
 
 
                             }
