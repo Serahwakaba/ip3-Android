@@ -140,7 +140,7 @@ public class AffectedCountries extends AppCompatActivity {
 
                                 countryModel = new CountryModel(flagUrl,countryName,cases,todayCases,deaths,todayDeaths,recovered,active,critical);
                                 countryModelsList.add(countryModel);
-                                root.setValue(countryModel);
+                                root.child("Affected Countries").setValue(countryModelsList);
 
 
 
