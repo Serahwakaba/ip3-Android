@@ -2,6 +2,8 @@ package com.moringaschool.covid19trackerweek3;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -20,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 //import com.leo.simplearcloader.SimpleArcLoader;
@@ -29,21 +33,29 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AffectedCountries extends AppCompatActivity {
 
 
     EditText edtSearch;
     ListView listView;
+    private LinearLayoutManager linearLayoutManager;
+    private RecyclerView recyclerView;
+
 //    SimpleArcLoader simpleArcLoader;
 
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference root = db.getReference().child("Countries");
+    private FirebaseRecyclerAdapter adapter;
 
     public static List<CountryModel> countryModelsList = new ArrayList<>();
     CountryModel countryModel;
     MyCustomAdapter myCustomAdapter;
+    private Object LinearLayoutManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +85,23 @@ public class AffectedCountries extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 startActivity(new Intent(getApplicationContext(),DetailActivity.class).putExtra("position",position));
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("posts").push();
+                Map<String,Object> map = new HashMap<>();
+                map.put("id", databaseReference.getKey());
+                map.put("title", edtSearch.getText().toString());
+
+                databaseReference.setValue(map);
+
 
             }
         });
+
+        LinearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
+        fetchData();
+
 
 
         edtSearch.addTextChangedListener(new TextWatcher() {
