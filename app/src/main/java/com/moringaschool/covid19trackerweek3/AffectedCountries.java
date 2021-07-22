@@ -42,14 +42,14 @@ public class AffectedCountries extends AppCompatActivity {
 
     EditText edtSearch;
     ListView listView;
-    private LinearLayoutManager linearLayoutManager;
-    private RecyclerView recyclerView;
+//    private LinearLayoutManager linearLayoutManager;
+//    private RecyclerView recyclerView;
 
 //    SimpleArcLoader simpleArcLoader;
 
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference root = db.getReference().child("Countries");
-    private FirebaseRecyclerAdapter adapter;
+//    private FirebaseRecyclerAdapter adapter;
 
     public static List<CountryModel> countryModelsList = new ArrayList<>();
     CountryModel countryModel;
@@ -96,11 +96,11 @@ public class AffectedCountries extends AppCompatActivity {
             }
         });
 
-        LinearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
-        fetchData();
+//        LinearLayoutManager = new LinearLayoutManager(this);
+//        recyclerView.setLayoutManager(linearLayoutManager);
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setAdapter(adapter);
+//        fetchData();
 
 
 
